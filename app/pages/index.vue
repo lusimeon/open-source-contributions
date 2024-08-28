@@ -19,10 +19,10 @@ useHead({
   ],
 })
 useSeoMeta({
-  title: `${user.name} is Contributing`,
-  description: `Discover ${user.name} recent pull requests on GitHub.`,
-  ogTitle: `${user.name} is Contributing`,
-  ogDescription: `Discover ${user.name} recent pull requests on GitHub.`,
+  title: `${user.name} open-source contributions`,
+  description: `${user.name} contributions on GitHub.`,
+  ogTitle: `${user.name} contributions`,
+  ogDescription: `${user.name} contributions on GitHub.`,
   twitterCard: 'summary_large_image',
   // Feel free to change this image with your own once deployed to NuxtHub
   ogImage: 'https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Bycy5hdGludXguY29tIiwiaWF0IjoxNzI0MTYwMTkxfQ.yYRD-Gs6EyYQSfg27fZVx1Kle7nq7QBSciDui-mbnnU.jpg?theme=light',
@@ -43,27 +43,23 @@ useSeoMeta({
       <h1 class="text-2xl sm:text-3xl text-center">
         <a :href="userUrl" target="_blank">
           {{ user.name }}
-        </a>
-        is <span class="animate-pulse">Contributing...</span>
+        </a> <span class="text-blue-800">contributions</span>
       </h1>
-      <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+      <p class="text-center text-gray-500 hover:text-gray-700">
         <NuxtLink :to="userUrl" target="_blank">
-          @{{ user.username }}'s recent pull requests on GitHub.
+          @{{ user.username }}'s open-source contributions on GitHub.
         </NuxtLink>
       </p>
-      <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
-        <ClientOnly>
-          <UButton
-            :aria-label="`${user.name}'s GitHub profile`"
-            :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"
-            color="gray"
-            variant="link"
-            @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
-          />
-          <template #fallback>
-            <div class="w-8 h-8" />
-          </template>
-        </ClientOnly>
+      <div class="flex items-center justify-center gap-1 text-gray-700">
+        <UButton
+          to="https://simeonlucas.fr/"
+          external
+          target="_blank"
+          :aria-label="`${user.name}'s website`"
+          icon="i-ph-link-duotone"
+          color="gray"
+          variant="link"
+        />
         <UButton
           :to="userUrl"
           external
@@ -83,7 +79,7 @@ useSeoMeta({
           variant="link"
         />
       </div>
-      <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
+      <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto" :ui="{ border: { base: 'flex border-gray-150' } }" />
     </div>
 
     <div class="flex flex-col gap-6 sm:gap-10">

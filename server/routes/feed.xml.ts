@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   const domain = getRequestURL(event).origin
   const { user, prs } = await $fetch<Contributions>('/api/contributions')
   const feed = new Feed({
-    title: `${user.name} is contributing...`,
+    title: `${user.name} contributions`,
     description: `Discover ${user.name}'s recent pull requests on GitHub`,
     id: domain,
     link: domain,
