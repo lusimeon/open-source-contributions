@@ -1,8 +1,13 @@
 <script setup>
+const {public} = useRuntimeConfig();
+  
 useHead({
   htmlAttrs: {
     lang: 'en',
   },
+  script: [
+    { src: 'https://analytics.simeonlucas.fr/umami.js', "data-website-id": public.umamiWebsiteId ?? '' },
+  ],
 })
 </script>
 
