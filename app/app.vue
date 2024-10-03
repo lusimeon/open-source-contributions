@@ -6,7 +6,7 @@ useHead({
     lang: 'en',
   },
   script: [
-    { src: 'https://analytics.simeonlucas.fr/umami.js', "data-website-id": public.umamiWebsiteId ?? '' },
+    { src: 'https://analytics.simeonlucas.fr/script.js', "data-website-id": public.umamiWebsiteId ?? '' },
   ],
 })
 </script>
