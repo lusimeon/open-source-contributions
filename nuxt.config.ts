@@ -28,4 +28,10 @@ export default defineNuxtConfig({
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
+
+  runtimeConfig: {
+    public: {
+      umamiWebsiteId: 'example',
+    },
+  },
 })
