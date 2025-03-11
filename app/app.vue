@@ -2,6 +2,9 @@
 const config = useRuntimeConfig()
 
 useHead({
+  meta: {
+    robots: 'noindex, nofollow',
+  },
   htmlAttrs: {
     lang: 'en',
   },
