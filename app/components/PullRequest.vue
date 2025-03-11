@@ -28,10 +28,11 @@ function formatStars(stars: number) {
       <div class="flex flex-col min-w-0 gap-0.5 sm:gap-1">
         <a :href="data.url" target="_blank" class="text-sm sm:text-base flex items-center gap-0.5 sm:gap-1 hover:underline text-blue-800">
           <UIcon
-            name="i-ph-git-pull-request-duotone"
+            :name="`i-ph-${data.issue ? 'ticket' : 'git-pull-request-duotone'}`"
             :class="{
-              'text-green-500': data.state === 'open',
-              'text-purple-500': data.state === 'merged',
+              'text-green-500': data.state === 'merged',
+              'text-purple-500': data.state === 'open',
+              'text-red-700': data.state === 'closed',
             }"
             class="size-4 sm:size-5 shrink-0"
           />

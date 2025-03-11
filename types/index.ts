@@ -8,6 +8,7 @@ export interface PullRequest {
   repo: string
   title: string
   url: string
+  issue: boolean
   created_at: string
   state: 'merged' | 'open' | 'closed'
   number: number

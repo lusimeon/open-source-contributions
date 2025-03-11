@@ -11,7 +11,7 @@ export default defineCachedEventHandler(async (event) => {
   }
   // Fetch pull requests from user
   const { data } = await octokit.request('GET /search/issues', {
-    q: `type:pr+author:"${user.username}"+-user:"${user.username}"`,
+    q: `author:"${user.username}"+-user:"${user.username}"`,
     per_page: 50,
     page: 1,
   })
@@ -29,6 +29,7 @@ export default defineCachedEventHandler(async (event) => {
       created_at: pr.created_at,
       state: pr.pull_request?.merged_at ? 'merged' : pr.state as 'open' | 'closed',
       number: pr.number,
+      issue: !pr.pull_request,
       type: repo.owner.type, // Add type information (User or Organization)
       stars: repo.stargazers_count,
     })
