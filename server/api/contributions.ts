@@ -14,6 +14,8 @@ export default defineCachedEventHandler(async (event) => {
     q: `author:"${user.username}"+-user:"${user.username}"`,
     per_page: 50,
     page: 1,
+    sort: 'updated',
+    order: 'desc',
   })
 
   const prs: PullRequest[] = []
@@ -27,6 +29,7 @@ export default defineCachedEventHandler(async (event) => {
       title: pr.title,
       url: pr.html_url,
       created_at: pr.created_at,
+      updated_at: pr.updated_at,
       state: pr.pull_request?.merged_at ? 'merged' : pr.state as 'open' | 'closed',
       number: pr.number,
       issue: !pr.pull_request,

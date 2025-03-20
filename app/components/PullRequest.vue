@@ -53,12 +53,15 @@ function formatStars(stars: number) {
         </div>
       </div>
 
-      <div class="flex flex-col justify-between shrink-0 text-right">
-        <a :href="data.url" target="_blank" class="hover:underline text-xs sm:text-sm">
-          #{{ data.number }}
-        </a>
-
-        <time :datatime="data.created_at" class="text-xs sm:text-sm text-gray-500">{{ useTimeAgo(new Date(data.created_at)) }}</time>
+      <div class="flex flex-col justify-end shrink-0 text-right">
+        <span class="block text-xs text-gray-400">
+          Created:
+          <time :datatime="data.created_at">{{ useTimeAgo(new Date(data.created_at)) }}</time>
+        </span>
+        <span v-if="data.updated_at !== data.created_at" class="block text-xs text-gray-500">
+          Updated:
+          <time :datatime="data.updated_at">{{ useTimeAgo(new Date(data.updated_at)) }}</time>
+        </span>
       </div>
     </div>
   </div>

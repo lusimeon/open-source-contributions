@@ -10,6 +10,7 @@ export interface PullRequest {
   url: string
   issue: boolean
   created_at: string
+  updated_at: string
   state: 'merged' | 'open' | 'closed'
   number: number
   type: 'User' | 'Organization'
